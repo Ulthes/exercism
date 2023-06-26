@@ -1,2 +1,2 @@
-# exercism-python
-My solutions to exercises on Exercism written in Python language.
+# exercism
+My solutions to exercises on Exercism.
