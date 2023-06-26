@@ -237,8 +237,7 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+.exercism/
+
 # .idea vcs rules
 .idea/vcs.xml
-
-# Exercism config files
-.exercism/

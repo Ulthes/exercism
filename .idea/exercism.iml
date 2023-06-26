@@ -2,6 +2,10 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/python/ghost-gobble-arcade-game/.exercism" />
+      <excludeFolder url="file://$MODULE_DIR$/python/ghost-gobble-arcade-game/.pytest_cache" />
+      <excludeFolder url="file://$MODULE_DIR$/python/guidos-gorgeous-lasagna/.exercism" />
+      <excludeFolder url="file://$MODULE_DIR$/python/guidos-gorgeous-lasagna/.pytest_cache" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.11 (exercism)" jdkType="Python SDK" />
