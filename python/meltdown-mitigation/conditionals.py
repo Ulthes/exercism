@@ -13,8 +13,13 @@ def is_criticality_balanced(temperature, neutrons_emitted):
     - The number of neutrons emitted per second is greater than 500.
     - The product of temperature and neutrons emitted per second is less than 500000.
     """
-
-    pass
+    safe_temperature: int = 800
+    safe_neutrons_number: int = 500
+    safe_product_multiplication: int = 500000
+    is_current_temperature_critical: bool = temperature < safe_temperature
+    is_current_neutrons_critical: bool = neutrons_emitted > safe_neutrons_number
+    is_product_critical: bool = temperature * neutrons_emitted < safe_product_multiplication
+    return is_current_temperature_critical and is_current_neutrons_critical and is_product_critical
 
 
 def reactor_efficiency(voltage, current, theoretical_max_power):
@@ -37,7 +42,19 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
     where generated power = voltage * current
     """
 
-    pass
+    generated_power: int = voltage * current
+    efficiency: int = (generated_power / theoretical_max_power) * 100
+    is_efficiency_green: bool = efficiency >= 80
+    is_efficiency_orange: bool = 80 > efficiency >= 60
+    is_efficiency_red: bool = 60 > efficiency >= 30
+
+    if is_efficiency_green:
+        return "green"
+    if is_efficiency_orange:
+        return "orange"
+    if is_efficiency_red:
+        return "red"
+    return "black"
 
 
 def fail_safe(temperature, neutrons_produced_per_second, threshold):
@@ -52,5 +69,12 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
     2. 'NORMAL' -> `temperature * neutrons per second` +/- 10% of `threshold`
     3. 'DANGER' -> `temperature * neutrons per second` is not in the above-stated ranges
     """
+    current_power: float = temperature * neutrons_produced_per_second
+    is_current_power_low: bool = current_power < threshold * 0.9
+    is_current_power_normal: bool = threshold * 0.9 <= current_power <= threshold * 1.1
 
-    pass
+    if is_current_power_low:
+        return "LOW"
+    if is_current_power_normal:
+        return "NORMAL"
+    return "DANGER"
